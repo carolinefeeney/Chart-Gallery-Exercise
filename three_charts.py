@@ -20,6 +20,7 @@ print(pie_data) # TODO: create a pie chart based on the pie_data
 #labels = ["Company X", "Company Y", "Company Z"]
 #values = [0.55, 0.30, 0.15]
 
+# source for proper formatting: https://github.com/madelinenlee/OPIM-243-chart-exercise
 labels = []
 values = []
 for i in range(0,len(pie_data)): #in the list of dictionaries, with the range 0-end 
@@ -54,6 +55,7 @@ print("----------------")
 print("GENERATING LINE GRAPH...")
 print(line_data) # TODO: create a line graph based on the line_data
 
+#source for proper formatting: https://github.com/madelinenlee/OPIM-243-chart-exercise 
 x = []
 y = []
 for i in range(0, len(line_data)):
@@ -85,6 +87,7 @@ print("----------------")
 print("GENERATING BAR CHART...")
 print(bar_data) # TODO: create a horizontal bar chart based on the bar_data
 
+#source for proper formatting https://github.com/madelinenlee/OPIM-243-chart-exercise
 x = []
 y = []
 for i in range(0, len(bar_data)):
