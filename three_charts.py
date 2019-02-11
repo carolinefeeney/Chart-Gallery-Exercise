@@ -85,6 +85,21 @@ print("----------------")
 print("GENERATING BAR CHART...")
 print(bar_data) # TODO: create a horizontal bar chart based on the bar_data
 
+x = []
+y = []
+for i in range(0, len(bar_data)):
+    y.append(bar_data[i]['genre']) 
+    x.append(bar_data[i]['viewers'])
 
+#import plotly.plotly as py     > do we not need to do this each time as long as we do so at the top?
+#import plotly.graph_objs as go
 
+data = [go.Bar(
+            x=x,
+            y=y,
+            orientation = 'h'
+)]
 
+layout = go.Layout(title='Viewers Per Genre')
+figure = go.Figure(data = data,layout=layout)
+plotly.offline.plot(figure, filename='horizontal-bar.html', auto_open = True)
