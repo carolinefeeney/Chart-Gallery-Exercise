@@ -19,9 +19,13 @@ import plotly.graph_objs as go
 labels = []
 values = []
 for i in range(0,len(pie_data)): #in the list of dictionaries, 
-    pass
+    labels.append(pie_data[i]["company"])
+    labels.append(pie_data[i]["market share"])
+
 
 trace = go.Pie(labels=labels, values=values)
+
+
 
 plotly.offline.plot([trace], filename="basic_pie_chart.html", auto_open=True)
 
