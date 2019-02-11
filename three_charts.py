@@ -13,25 +13,27 @@ pie_data = [
 import plotly
 import plotly.graph_objs as go
 
+print("----------------")
+print("GENERATING PIE CHART...")
+print(pie_data) # TODO: create a pie chart based on the pie_data
+
 #labels = ["Company X", "Company Y", "Company Z"]
 #values = [0.55, 0.30, 0.15]
 
 labels = []
 values = []
-for i in range(0,len(pie_data)): #in the list of dictionaries, 
-    labels.append(pie_data[i]["company"])
-    labels.append(pie_data[i]["market share"])
+for i in range(0,len(pie_data)): #in the list of dictionaries, with the range 0-end 
+    labels.append(pie_data[i]['company'])
+    values.append(pie_data[i]['market_share'])
 
 
-trace = go.Pie(labels=labels, values=values)
-
+layout = {'title': 'Industry market share'}
+trace = go.Pie(labels=labels, values=values, title='Industry market share')
 
 
 plotly.offline.plot([trace], filename="basic_pie_chart.html", auto_open=True)
 
-print("----------------")
-print("GENERATING PIE CHART...")
-print(pie_data) # TODO: create a pie chart based on the pie_data
+
 
 #
 # CHART 2 (LINE)
@@ -51,6 +53,19 @@ line_data = [
 print("----------------")
 print("GENERATING LINE GRAPH...")
 print(line_data) # TODO: create a line graph based on the line_data
+
+x = []
+y = []
+for i in range(0, len(line_data)):
+    x.append(line_data[i]['date']) #TODO help interpret this
+    y.append(line_data[i]['stock_price_usd'])
+
+
+plotly.offline.plot({
+    "data": [go.Scatter(x=x, y=y)],  #adapted from the plotly package example on github
+    "layout": go.Layout(title="Stock Prices Over Time")
+}, auto_open=True)
+
 
 #
 # CHART 3 (HORIZONTAL BAR)
